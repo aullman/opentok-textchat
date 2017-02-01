@@ -4,7 +4,7 @@
   "description": "Text chat component using Angular for opentok",
   "main": "opentok-textchat.js",
   "scripts": {
-    "test": "karma start tests/karma.conf.js"
+    "test": "echo No tests yet"
   },
   "keywords": [
     "opentok",
