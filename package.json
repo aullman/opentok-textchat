@@ -4,7 +4,7 @@
   "description": "Demo of the opentok-textchat component",
   "main": "index.html",
   "scripts": {
-    "postinstall": "webpack",
+    "postinstall": "webpack;mkdir -p css;cp node_modules/ng-embed/dist/ng-embed.min.css css/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Adam Ullman",
