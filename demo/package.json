@@ -4,6 +4,7 @@
   "description": "Demo of the opentok-textchat component",
   "main": "index.html",
   "scripts": {
+    "postinstall": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Adam Ullman",

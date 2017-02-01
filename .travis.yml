@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+  - stable
+
+env:
+  global:
+  - ENCRYPTION_LABEL: "e281ba595e00"
+  - COMMIT_AUTHOR_EMAIL: "adam@tokbox.com"
+
+after_success:
+  - ./deploy.sh
