@@ -6,6 +6,8 @@ env:
   global:
   - ENCRYPTION_LABEL: "e281ba595e00"
   - COMMIT_AUTHOR_EMAIL: "adam@tokbox.com"
+  - OT_API_KEY: "1052571"
+  - OT_SESSION_ID: "2_MX4xMDUyNTcxfn4xNDg1OTE2OTk4MTgwfnJYV2QrZXJGaDhwWlBTVDdLdkptNmF2en5-"
 
 after_success:
   - ./deploy.sh
