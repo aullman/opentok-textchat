@@ -1,0 +1,63 @@
+#otTextChat {
+  width: 100%;
+  height: 100%;
+}
+
+#otTextChatMessages {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  height: calc(100% - 20px);
+  overflow: auto;
+}
+
+#otTextChat form {
+  height: 30px;
+  padding-bottom: 10px;
+}
+
+#otTextChat .from {
+  font-weight: bold;
+}
+
+#otTextChat .time {
+  font-size: 12px;
+  color: #ccc;
+}
+
+#otTextChat .welcome {
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+#otTextChat .message {
+  margin-bottom: 10px;
+}
+
+#otTextChat form input {
+  width: 100%;
+  vertical-align: bottom;
+  margin: 0;
+  padding: 10px;
+  border: solid 2px #ccc;
+  border-radius: 5px;
+  height: 100%;
+  font-size: 12px;
+}
+
+#otTextChat form input:focus{
+  border-color: #999;
+  outline: none;
+}
+
+#otTextChat img {
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  object-fit: cover;
+  float: left;
+}
+
+#otTextChat .message .messageText {
+  margin-left: 50px;
+}
