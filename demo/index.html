@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="demo">
+  <head>
+    <meta charset="utf-8">
+    <title>opentok-textchat Demo</title>
+    <script src="https://tbdev.tokbox.com/v2/js/opentok.min.js" charset="utf-8"></script>
+    <script src="js/index.bundle.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="node_modules/ng-embed/dist/ng-embed.min.css">
+    <style media="screen">
+      opentok-textchat {
+        display: block;
+        width: 100%;
+        height: 50%;
+        padding: 10px;
+        border: 1px solid #ccc;
+      }
+      ot-publisher, ot-subscriber, ot-layout {
+        display: block;
+      }
+      ot-layout {
+        width: 100%;
+        height: 100%;
+      }
+      body {
+        padding: 0;
+        margin: 0;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      }
+      #videoChat {
+        width: 100%;
+        height: 50%;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body ng-controller="DemoCtrl">
+    <div id="videoChat">
+      <ot-layout props="{fixedRatio: true}">
+        <ot-publisher></ot-publisher>
+        <ot-subscriber ng-repeat="stream in streams"
+          stream="stream"
+        </ot-subscriber>
+      </ot-layout>
+    </div>
+    <opentok-textchat ng-if="connected"></opentok-textchat>
+  </body>
+</html>

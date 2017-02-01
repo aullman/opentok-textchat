@@ -1,0 +1,29 @@
+{
+  "name": "opentok-textchat",
+  "version": "1.0.0",
+  "description": "Text chat component using Angular for opentok",
+  "main": "opentok-textchat.js",
+  "scripts": {
+    "test": "karma start tests/karma.conf.js"
+  },
+  "keywords": [
+    "opentok",
+    "angular",
+    "textchat"
+  ],
+  "author": "Adam Ullman",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^3.14.1",
+    "eslint-config-airbnb-base": "^11.0.1",
+    "eslint-plugin-import": "^2.2.0"
+  },
+  "dependencies": {
+    "angular": "^1.6.1",
+    "angular-moment": "^1.0.1",
+    "angular-sanitize": "^1.6.1",
+    "highlight.js": "^9.9.0",
+    "moment": "^2.17.1",
+    "ng-embed": "^2.1.1"
+  }
+}
