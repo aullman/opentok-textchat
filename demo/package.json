@@ -5,7 +5,7 @@
   "main": "index.html",
   "scripts": {
     "postinstall": "webpack;mkdir -p css;cp node_modules/ng-embed/dist/ng-embed.min.css css/",
-    "pretest": "webdriver-manager update;webdriver-manager start &",
+    "pretest": "./travis-start-webdriver.sh",
     "test": "protractor tests/protractor.conf.js",
     "start": "http-server"
   },
