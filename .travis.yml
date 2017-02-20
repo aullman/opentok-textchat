@@ -14,8 +14,7 @@ env:
     - BROWSER=chrome  BVER=stable
 
 before_script:
-  - cd demo && npm install && npm start &
-  - sleep 30
+  - cd demo && ./travis-start-demo.sh
 
 script:
   - npm test
