@@ -10,16 +10,16 @@ const config = {
 
 switch (process.env.BROWSER) {
   case 'firefox':
-    firefoxProfile.setPreference('media.navigator.permission.disabled', true);
-    firefoxProfile.setPreference('media.navigator.streams.fake', true);
-    firefoxProfile.setPreference('media.getusermedia.screensharing.allowed_domains',
-      'localhost,adam.local');
+    // firefoxProfile.setPreference('media.navigator.permission.disabled', true);
+    // firefoxProfile.setPreference('media.navigator.streams.fake', true);
+    // firefoxProfile.setPreference('media.getusermedia.screensharing.allowed_domains',
+    //   'localhost,adam.local');
 
     config.firefoxPath = process.env.BROWSERBIN;
     config.capabilities = {
       browserName: 'firefox',
       marionette: true,
-      firefox_profile: firefoxProfile,
+      // firefox_profile: firefoxProfile,
     };
     break;
   case 'chrome':
