@@ -2,7 +2,7 @@
 
 # taken from https://stackoverflow.com/questions/36066695/running-protractor-when-webdriver-manager-start-finishes/39252628#39252628
 
-
+echo "BROWSERBIN is $BROWSERBIN"
 if [[ $BROWSERBIN == *"firefox"* ]]; then
   echo "Updating path to Firefox"
   # Update the path to firefox
