@@ -15,7 +15,7 @@ env:
 
 before_script:
   - cd demo && npm install && npm start &
-  - sleep 20
+  - sleep 30
 
 script:
   - npm test
