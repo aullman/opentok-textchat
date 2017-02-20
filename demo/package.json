@@ -5,8 +5,8 @@
   "main": "index.html",
   "scripts": {
     "postinstall": "webpack;mkdir -p css;cp node_modules/ng-embed/dist/ng-embed.min.css css/",
-    "pretest": "webdriver-manager update",
-    "test": "protractor tests/protractor.conf.js",
+    "pretest": "./node_modules/.bin/webdriver-manager update",
+    "test": "./node_modules/.bin/protractor tests/protractor.conf.js",
     "start": "http-server"
   },
   "author": "Adam Ullman",
