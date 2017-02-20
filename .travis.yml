@@ -19,6 +19,7 @@ env:
 
   matrix:
     - BROWSER=chrome  BVER=stable
+    - BROWSER=firefox BVER=stable
 
 before_script:
   - cd demo && ./travis-start-demo.sh
