@@ -10,7 +10,6 @@ env:
   - OT_SESSION_ID: "2_MX4xMDUyNTcxfn4xNDg1OTE2OTk4MTgwfnJYV2QrZXJGaDhwWlBTVDdLdkptNmF2en5-"
   - INTEGRATION_CMD: "npm run integration"
 
-env:
   matrix:
     - BROWSER=chrome  BVER=stable
 
