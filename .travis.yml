@@ -22,7 +22,7 @@ env:
     - BROWSER=firefox BVER=stable
 
 before_script:
-  - cd demo && ./travis-start-demo.sh
+  - cd demo && ./travis-start-demo.sh;cd ..
 
 script:
   - npm test
