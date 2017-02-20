@@ -2,6 +2,14 @@
 
 # taken from https://stackoverflow.com/questions/36066695/running-protractor-when-webdriver-manager-start-finishes/39252628#39252628
 
+
+if [[ $BROWSERBIN == *"firefox"* ]]; then
+  echo "Updating path to Firefox"
+  # Update the path to firefox
+  ln -s $BROWSERBIN ./browsers/bin/firefox
+  export PATH=./browsers/bin:$PATH
+fi
+echo "Firefox is at `which firefox`"
 webdriver-manager update
 # Start selenium server and trash the verbose error messages from webdriver
 webdriver-manager start 2>/dev/null &
