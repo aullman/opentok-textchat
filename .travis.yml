@@ -18,5 +18,8 @@ before_script:
   - cd demo && npm install && npm start &
   - cd ..
 
+script:
+  - npm test
+
 after_success:
   - ./deploy.sh
