@@ -2,6 +2,9 @@ language: node_js
 node_js:
   - stable
 
+sudo: required
+dist: trusty
+
 env:
   global:
   - ENCRYPTION_LABEL: "e281ba595e00"
