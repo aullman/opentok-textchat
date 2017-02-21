@@ -8,7 +8,7 @@ if [[ $BROWSERBIN == *"firefox"* ]]; then
   # Update the path to firefox to make Webdriver use it
   FIREFOX_PATH=`which firefox`
   sudo mv $FIREFOX_PATH $FIREFOX_PATH-bak
-  sudo ln -s $FIREFOX_PATH $BROWSERBIN
+  sudo ln -s $BROWSERBIN $FIREFOX_PATH
 fi
 echo "Firefox is at `which firefox`"
 webdriver-manager update
