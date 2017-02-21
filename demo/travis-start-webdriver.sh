@@ -5,13 +5,10 @@
 echo "BROWSERBIN is $BROWSERBIN"
 if [[ $BROWSERBIN == *"firefox"* ]]; then
   echo "Updating path to Firefox"
-  # Update the path to firefox to take off the -$BVER
-  # set ./browsers/bin/firefox-stable to ./browsers/bin/firefox
-  ln -s $BROWSERBIN ${BROWSERBIN:0:${#BROWSERBIN} - ${#BVER} - 1}
-  FIREFOX=firefox
-  # Set path to include ./browsers/bin so that `which firefox` picks up this path
-  # and WebDriver uses it
-  export PATH=${BROWSERBIN:0:${#BROWSERBIN} - ${#BVER} - ${#FIREFOX} - 1}:$PATH
+  # Update the path to firefox to make Webdriver use it
+  FIREFOX_PATH=`which firefox`
+  mv $FIREFOX_PATH $FIREFOX_PATH-bak
+  ln -s $FIREFOX_PATH $BROWSERBIN
 fi
 echo "Firefox is at `which firefox`"
 webdriver-manager update
