@@ -4,7 +4,8 @@
   "description": "Text chat component using Angular for opentok",
   "main": "opentok-textchat.js",
   "scripts": {
-    "test": "echo No tests yet"
+    "test": "run-tests",
+    "integration": "cd demo && npm test"
   },
   "keywords": [
     "opentok",
@@ -16,7 +17,9 @@
   "devDependencies": {
     "eslint": "^3.14.1",
     "eslint-config-airbnb-base": "^11.0.1",
-    "eslint-plugin-import": "^2.2.0"
+    "eslint-plugin-import": "^2.2.0",
+    "opentok-test-scripts": "^3.2.1",
+    "protractor": "^5.1.1"
   },
   "dependencies": {
     "angular": "^1.6.1",
