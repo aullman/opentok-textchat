@@ -72,6 +72,36 @@ describe('demo', () => {
       it('gets the message', () => {
         checkMessageReceived(browser2Name, 'hello world');
       });
+
+      it('updates image when clicked', () => {
+        const browser1ChatMessage = element(by.css('#otTextChatMessages .message'));
+        let browser1ImageSrc;
+        const browser1Image = browser1ChatMessage.element(by.css('img'));
+        browser1Image.getAttribute('src')
+        .then((src) => {
+          browser1ImageSrc = src;
+        }).then(() => switchWindow())
+        .then(() => {
+          const browser2ChatMessage = element(by.css('#otTextChatMessages .message'));
+          let browser2ImageSrc;
+          const browser2Image = browser2ChatMessage.element(by.css('img'));
+          browser2Image.getAttribute('src')
+          .then((src) => {
+            browser2ImageSrc = src;
+          });
+          browser2Image.click();
+          // Expect the image to update for both participants
+          browser2Image.getAttribute('src').then((src) => {
+            expect(src).not.toEqual(browser2ImageSrc);
+          });
+          return switchWindow();
+        })
+        .then(() => {
+          browser1Image.getAttribute('src').then((src) => {
+            expect(src).not.toEqual(browser1ImageSrc);
+          });
+        });
+      });
     });
   });
 });
