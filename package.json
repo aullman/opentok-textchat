@@ -13,6 +13,10 @@
     "textchat"
   ],
   "author": "Adam Ullman",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aullman/opentok-textchat.git"
+  },
   "license": "MIT",
   "devDependencies": {
     "eslint": "^3.14.1",
