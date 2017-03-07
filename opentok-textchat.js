@@ -65,6 +65,7 @@ angular.module('opentok-textchat', ['opentok', 'angularMoment', 'ngEmbed'])
           const messageData = JSON.parse(event.data);
           const message = new Message(event.from, messageData.date, messageData.body);
           scope.messages.push(message);
+          scope.$emit('otTextchatMessage', message);
           scope.$apply();
           const lastMessage = element[0].querySelector('.message:last-child');
           lastMessage.scrollIntoView();
@@ -92,7 +93,7 @@ angular.module('opentok-textchat', ['opentok', 'angularMoment', 'ngEmbed'])
         const inputText = element.find('input');
         sendForm.on('submit', () => {
           const body = inputText.val();
-          if (!body) return;
+          if (!body) return false;
           const nameRegexp = /\/name (\w+)/;
           if (body.match(nameRegexp)) {
             // We're setting the name
