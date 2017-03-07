@@ -56,7 +56,7 @@
 	angular.module('demo', ['opentok', 'opentok-textchat'])
 	.controller('DemoCtrl', ['$scope', 'OTSession', ($scope, OTSession) => {
 	  $scope.connected = false;
-	  OTSession.init(("1052571"), ("2_MX4xMDUyNTcxfn4xNDg1OTE2OTk4MTgwfnJYV2QrZXJGaDhwWlBTVDdLdkptNmF2en5-"), ("T1==cGFydG5lcl9pZD0xMDUyNTcxJnNpZz1hNGViYzc4MmY2M2VmMzExNmQzMmYwNjcwZmZhMDY5OWQyM2YxYWI2OnNlc3Npb25faWQ9Ml9NWDR4TURVeU5UY3hmbjR4TkRnMU9URTJPVGs0TVRnd2ZuSllWMlFyWlhKR2FEaHdXbEJUVkRkTGRrcHRObUYyZW41LSZjcmVhdGVfdGltZT0xNDg4NjMyMTA4Jm5vbmNlPTAuNzk2NDg1OTQzNjU2NDYwMiZyb2xlPXB1Ymxpc2hlciZleHBpcmVfdGltZT0xNDg5OTI4MTA4"), (err) => {
+	  OTSession.init(("1052571"), ("2_MX4xMDUyNTcxfn4xNDg1OTE2OTk4MTgwfnJYV2QrZXJGaDhwWlBTVDdLdkptNmF2en5-"), ("T1==cGFydG5lcl9pZD0xMDUyNTcxJnNpZz04M2ZmZDZiYjI2ZGNlMzI2MDU2YTU3NTc1MjljODY3MTA3YTg0NGZiOnNlc3Npb25faWQ9Ml9NWDR4TURVeU5UY3hmbjR4TkRnMU9URTJPVGs0TVRnd2ZuSllWMlFyWlhKR2FEaHdXbEJUVkRkTGRrcHRObUYyZW41LSZjcmVhdGVfdGltZT0xNDg4ODg2MDIxJm5vbmNlPTAuNDY0ODcxNTk0MjMyNjkyNjQmcm9sZT1wdWJsaXNoZXImZXhwaXJlX3RpbWU9MTQ5MDE4MjAyMQ=="), (err) => {
 	    if (!err) {
 	      $scope.$apply(() => {
 	        $scope.connected = true;
