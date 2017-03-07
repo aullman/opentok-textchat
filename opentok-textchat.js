@@ -92,6 +92,7 @@ angular.module('opentok-textchat', ['opentok', 'angularMoment', 'ngEmbed'])
         const inputText = element.find('input');
         sendForm.on('submit', () => {
           const body = inputText.val();
+          if (!body) return;
           const nameRegexp = /\/name (\w+)/;
           if (body.match(nameRegexp)) {
             // We're setting the name
