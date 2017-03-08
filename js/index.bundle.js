@@ -56,7 +56,7 @@
 	angular.module('demo', ['opentok', 'opentok-textchat'])
 	.controller('DemoCtrl', ['$scope', 'OTSession', ($scope, OTSession) => {
 	  $scope.connected = false;
-	  OTSession.init(("1052571"), ("2_MX4xMDUyNTcxfn4xNDg1OTE2OTk4MTgwfnJYV2QrZXJGaDhwWlBTVDdLdkptNmF2en5-"), ("T1==cGFydG5lcl9pZD0xMDUyNTcxJnNpZz04M2ZmZDZiYjI2ZGNlMzI2MDU2YTU3NTc1MjljODY3MTA3YTg0NGZiOnNlc3Npb25faWQ9Ml9NWDR4TURVeU5UY3hmbjR4TkRnMU9URTJPVGs0TVRnd2ZuSllWMlFyWlhKR2FEaHdXbEJUVkRkTGRrcHRObUYyZW41LSZjcmVhdGVfdGltZT0xNDg4ODg2MDIxJm5vbmNlPTAuNDY0ODcxNTk0MjMyNjkyNjQmcm9sZT1wdWJsaXNoZXImZXhwaXJlX3RpbWU9MTQ5MDE4MjAyMQ=="), (err) => {
+	  OTSession.init(("1052571"), ("2_MX4xMDUyNTcxfn4xNDg1OTE2OTk4MTgwfnJYV2QrZXJGaDhwWlBTVDdLdkptNmF2en5-"), ("T1==cGFydG5lcl9pZD0xMDUyNTcxJnNpZz1lOWM0YzkwNTI5M2JmMWViMDMwNTNjNTNkYmI1YjU2MDUwMWVjMjViOnNlc3Npb25faWQ9Ml9NWDR4TURVeU5UY3hmbjR4TkRnMU9URTJPVGs0TVRnd2ZuSllWMlFyWlhKR2FEaHdXbEJUVkRkTGRrcHRObUYyZW41LSZjcmVhdGVfdGltZT0xNDg4OTQ3MDI2Jm5vbmNlPTAuMDQwNDI2NTcwNzMzMjI1ODY0JnJvbGU9cHVibGlzaGVyJmV4cGlyZV90aW1lPTE0OTAyNDMwMjY="), (err) => {
 	    if (!err) {
 	      $scope.$apply(() => {
 	        $scope.connected = true;
@@ -44030,6 +44030,7 @@
 	          const messageData = JSON.parse(event.data);
 	          const message = new Message(event.from, messageData.date, messageData.body);
 	          scope.messages.push(message);
+	          scope.$emit('otTextchatMessage', message);
 	          scope.$apply();
 	          const lastMessage = element[0].querySelector('.message:last-child');
 	          lastMessage.scrollIntoView();
@@ -44057,6 +44058,7 @@
 	        const inputText = element.find('input');
 	        sendForm.on('submit', () => {
 	          const body = inputText.val();
+	          if (!body) return false;
 	          const nameRegexp = /\/name (\w+)/;
 	          if (body.match(nameRegexp)) {
 	            // We're setting the name
