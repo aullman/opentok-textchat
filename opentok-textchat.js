@@ -34,6 +34,21 @@ const getNameFromConnection = (connection) => {
   return `Guest${id}`;
 };
 
+const createObjectURLFromImgData = (imgData) {
+  const binaryString = atob(imgData);
+  const len = binaryString.length;
+  const bytes = new Uint8Array(len);
+  
+  for (let i = 0; i < len; i++) {
+    bytes[i] = binaryString.charCodeAt(i);
+  }
+  
+  const blob = new Blob([bytes], { type: 'image/png' });
+  const url = URL.createObjectURL(blob);
+  
+  return url;
+}
+
 angular.module('opentok-textchat', ['opentok', 'angularMoment', 'ngEmbed'])
   .directive('opentokTextchat', ['OTSession', 'moment', function otTextChat(OTSession) {
     return {
@@ -136,8 +151,7 @@ angular.module('opentok-textchat', ['opentok', 'angularMoment', 'ngEmbed'])
             sub => sub.stream.connection.connectionId === from.connectionId) ||
             OT.publishers.find(pub => pub.stream.connection.connectionId === from.connectionId);
           if (ps) {
-            imagesByConnectionId[from.connectionId] =
-              `data:image/png;base64,${ps.getImgData()}`;
+            imagesByConnectionId[from.connectionId] = createObjectURLFromImgData(ps.getImgData());
           }
         };
 
