@@ -1,4 +1,4 @@
-/* global localStorage OT */
+/* global localStorage OT Blob URL atob */
 
 const angular = require('angular');
 require('angular-moment');
@@ -34,20 +34,20 @@ const getNameFromConnection = (connection) => {
   return `Guest${id}`;
 };
 
-const createObjectURLFromImgData = (imgData) {
+const createObjectURLFromImgData = (imgData) => {
   const binaryString = atob(imgData);
   const len = binaryString.length;
   const bytes = new Uint8Array(len);
-  
-  for (let i = 0; i < len; i++) {
+
+  for (let i = 0; i < len; i += 1) {
     bytes[i] = binaryString.charCodeAt(i);
   }
-  
+
   const blob = new Blob([bytes], { type: 'image/png' });
   const url = URL.createObjectURL(blob);
-  
+
   return url;
-}
+};
 
 angular.module('opentok-textchat', ['opentok', 'angularMoment', 'ngEmbed'])
   .directive('opentokTextchat', ['OTSession', 'moment', function otTextChat(OTSession) {
