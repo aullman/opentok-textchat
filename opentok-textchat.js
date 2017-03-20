@@ -1,4 +1,4 @@
-/* global localStorage OT */
+/* global localStorage OT Blob URL atob */
 
 const angular = require('angular');
 require('angular-moment');
@@ -32,6 +32,21 @@ const getNameFromConnection = (connection) => {
   let id = connection.creationTime.toString();
   id = id.substring(id.length - 6, id.length - 1);
   return `Guest${id}`;
+};
+
+const createObjectURLFromImgData = (imgData) => {
+  const binaryString = atob(imgData);
+  const len = binaryString.length;
+  const bytes = new Uint8Array(len);
+
+  for (let i = 0; i < len; i += 1) {
+    bytes[i] = binaryString.charCodeAt(i);
+  }
+
+  const blob = new Blob([bytes], { type: 'image/png' });
+  const url = URL.createObjectURL(blob);
+
+  return url;
 };
 
 angular.module('opentok-textchat', ['opentok', 'angularMoment', 'ngEmbed'])
@@ -136,8 +151,7 @@ angular.module('opentok-textchat', ['opentok', 'angularMoment', 'ngEmbed'])
             sub => sub.stream.connection.connectionId === from.connectionId) ||
             OT.publishers.find(pub => pub.stream.connection.connectionId === from.connectionId);
           if (ps) {
-            imagesByConnectionId[from.connectionId] =
-              `data:image/png;base64,${ps.getImgData()}`;
+            imagesByConnectionId[from.connectionId] = createObjectURLFromImgData(ps.getImgData());
           }
         };
 
