@@ -16,6 +16,7 @@ env:
   - OT_API_KEY: "1052571"
   - OT_SESSION_ID: "2_MX4xMDUyNTcxfn4xNDg1OTE2OTk4MTgwfnJYV2QrZXJGaDhwWlBTVDdLdkptNmF2en5-"
   - INTEGRATION_CMD: "'npm run integration'"
+  - SAUCE_USERNAME: "adam-textchat"
 
   matrix:
     - BROWSER=chrome  BVER=stable
