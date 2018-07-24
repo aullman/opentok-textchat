@@ -65,7 +65,7 @@ angular.module('opentok-textchat', ['opentok', 'angularMoment', 'ngEmbed'])
           '</div><div class="messageText">' +
           '<span class="from">{{getName(message.from)}}</span> ' +
           '<span class="time" am-time-ago="message.date | amFromUnix"></span>' +
-          '<div class="body" ng-bind-html="message.body | embed"></div>' +
+          '<div class="body" ng-bind-html="message.body | embed:{linkTarget:\'_blank\'}"></div>' +
         '</div></div></div>' +
         '<form>' +
         '<input type="text" id="body" autocomplete="off"></input>' +
