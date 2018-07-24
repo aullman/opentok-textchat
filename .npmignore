@@ -1,0 +1,7 @@
+/sc-*
+/node_modules
+/browsers
+/demo
+/demo
+/npm-debug.log
+/sauce-connect.log
