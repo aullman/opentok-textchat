@@ -149,7 +149,10 @@ angular.module('opentok-textchat', ['opentok', 'angularMoment', 'ngEmbed'])
         const getNewImage = (from) => {
           const ps = OT.subscribers.find(
             sub => sub.stream.connection.connectionId === from.connectionId) ||
-            OT.publishers.find(pub => pub.stream.connection.connectionId === from.connectionId);
+            OT.publishers.find(pub =>
+              pub.stream && pub.stream.connection
+                && pub.stream.connection.connectionId === from.connectionId
+            );
           if (ps) {
             imagesByConnectionId[from.connectionId] = createObjectURLFromImgData(ps.getImgData());
           }
